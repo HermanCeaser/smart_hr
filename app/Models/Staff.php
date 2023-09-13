@@ -10,12 +10,15 @@ class Staff extends Model
 {
     use HasFactory;
 
-    public function departments(): BelongsTo
+    protected $appends = ['full_name'];
+    protected $guarded = [];
+
+    public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
     }
 
-    public function designations(): BelongsTo
+    public function designation(): BelongsTo
     {
         return $this->belongsTo(Designation::class);
     }
@@ -29,4 +32,11 @@ class Staff extends Model
     {
         return $this->belongsTo(Tenant::class);
     }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+
 }

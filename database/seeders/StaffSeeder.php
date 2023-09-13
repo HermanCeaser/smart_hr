@@ -42,6 +42,7 @@ class StaffSeeder extends Seeder
                 ]);
 
                 $staff->user()->associate($user->id);
+                $staff->email = $user->email;
                 $staff->save();
             });
         }
