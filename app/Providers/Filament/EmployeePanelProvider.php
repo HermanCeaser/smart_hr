@@ -25,7 +25,7 @@ class EmployeePanelProvider extends PanelProvider
     {
         return $panel
             ->id('app')
-            ->path('')
+            ->path('app')
             ->login()
             ->colors([
                 'primary' => Color::Emerald,
