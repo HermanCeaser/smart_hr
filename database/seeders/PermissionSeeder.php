@@ -22,7 +22,7 @@ class PermissionSeeder extends Seeder
                 $permissionName = ucwords(str_replace('_', ' ', $prefix . ' ' . $moduleKey));
                 $permissions[] = [
                     'name' => $permissionName,
-                    'slug' => strtolower(str_replace(' ', '_', $permissionName)),
+                    'slug' => strtolower(str_replace(' ', '-', $permissionName)),
                     'guard_name' => 'web',
                     'module' => $moduleName,
                     'created_at' => now(),

@@ -12,7 +12,7 @@ class Permission extends BasePermission
 {
     use HasFactory, HasTenant;
 
-    protected $fillable = ['name', 'slug', 'module', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'slug', 'module', 'guard_name','created_at', 'updated_at'];
 
     protected $dates = ['deleted_at'];
 

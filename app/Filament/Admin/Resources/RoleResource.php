@@ -33,8 +33,15 @@ class RoleResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('guard_name')
+                    ->default('web')
+                    ->hidden()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Select::make('permissions')
+                ->multiple()
+                ->relationship('permissions', 'name')
+                ->searchable()
+                ->preload()
             ]);
     }
 
@@ -42,12 +49,7 @@ class RoleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('tenant.name')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('guard_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

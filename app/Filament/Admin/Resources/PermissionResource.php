@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class PermissionResource extends Resource
 {
@@ -31,19 +32,34 @@ class PermissionResource extends Resource
         return $query;
     }
 
+
+
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
+                        if ($operation !== 'create') {
+                            return;
+                        }
+                        $set('slug', Str::slug($state));
+                    }),
                 Forms\Components\TextInput::make('guard_name')
+                    ->default('web')
+                    ->hidden()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
+                    ->maxLength(255)
+                    ->disabled()
+                    ->dehydrated()
                     ->required()
-                    ->maxLength(255),
+                    ->unique(Permission::class, 'slug', ignoreRecord: true),
                 Forms\Components\TextInput::make('module')
                     ->maxLength(255),
             ]);
@@ -51,11 +67,12 @@ class PermissionResource extends Resource
 
     public static function table(Table $table): Table
     {
+        $uniqueModules = Permission::pluck('module')->unique();
+        $modules = $uniqueModules->combine($uniqueModules)->toArray();
+        
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('guard_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -71,7 +88,10 @@ class PermissionResource extends Resource
                     ->searchable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('module')
+                    ->preload()
+                    ->multiple()
+                    ->options($modules)
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -83,6 +103,11 @@ class PermissionResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
+            ])
+            ->groups([
+                Tables\Grouping\Group::make('module')
+                    ->label('Module')
+                    ->collapsible(),
             ]);
     }
 
