@@ -12,6 +12,7 @@ class Permission extends BasePermission
 {
     use HasFactory, HasTenant, SoftDeletes;
 
+    protected $fillable = ['name', 'slug', 'module', 'created_at', 'updated_at'];
 
     protected $dates = ['deleted_at'];
 

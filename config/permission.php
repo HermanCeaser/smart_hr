@@ -160,7 +160,6 @@ return [
     ],
 
     'permission_prefixes' => [
-        'resource' => [
             'view',
             'view_any',
             'create',
@@ -173,13 +172,40 @@ return [
             'delete_any',
             'force_delete',
             'force_delete_any',
-            'lock'
-        ],
+            'lock',
+            'create_setup',
+            'view_setup',
+            'update_setup',
+            'delete_setup',
+
     ],
     'modules' => [
-        'employees',
-        'holidays',
-        'leave',
+        'employees' => 'Employee',
+        'holidays' => 'Holiday',
+        'leave' => 'Leave',
+        'attendance' => 'Attendance',
+        'projects' => 'Projects',
+        'performance' => 'Performance',
+        'leads' => 'Leads',
+        'clients' => 'Clients',
+        'tasks' => 'Tasks',
+        'tickets' => 'Tickets',
+        'settings' => 'Settings',
+        'roles_and_permission' => 'Roles and Permission'
         
-    ]
+    ],
+
+    'roles' => [
+        'administrator' => 'Administrator',
+        'ceo' => 'CEO',
+        'manager' => 'Manager',
+        'team_leader' => 'Team Leader',
+        'accountant' => 'Accountant',
+        'web_developer' => 'Web Developer',
+        'lead_developer' => 'Lead Developer',
+        'junior_developer' => 'Junior Developer',
+        'hr' => 'HR',
+        'marketeer' => 'Marketeer',
+        'web_designer' => 'Web Designer',
+    ],
 ];
