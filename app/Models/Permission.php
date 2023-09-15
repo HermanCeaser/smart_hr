@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Permission as BasePermission;
 
 class Permission extends BasePermission
 {
-    use HasFactory, HasTenant, SoftDeletes;
+    use HasFactory, HasTenant;
 
     protected $fillable = ['name', 'slug', 'module', 'created_at', 'updated_at'];
 

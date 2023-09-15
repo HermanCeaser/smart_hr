@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Role extends BaseRole
 {
     use HasFactory;
-    use SoftDeletes;
     use HasTenant;
 
     protected $dates = ['deleted_at'];

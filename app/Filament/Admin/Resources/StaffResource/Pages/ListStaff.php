@@ -20,11 +20,7 @@ class ListStaff extends ListRecords
         ];
     }
 
-    // public function table(Table $table): Table
-    // {
-    //     return $table
-    //         ->modifyQueryUsing(fn (Builder $query) => $query->orderBy('created_at', 'desc'));
-    // }
+
 
     public function getTabs(): array
     {
