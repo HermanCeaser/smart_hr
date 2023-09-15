@@ -29,8 +29,6 @@ class RoleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('tenant_id')
-                    ->relationship('tenant', 'name'),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
