@@ -6,7 +6,7 @@
                     <div class="flex items-center justify-center gap-2  ">
                         <img src="{{ asset('images/smarthr-logo.png') }}" alt="Logo" class="h-10">
 
-                        <span class="hidden sm:block text-2xl text-primary-600 dark:text-primary-400"> Smart
+                        <span class="sm:block text-2xl text-primary-600 dark:text-primary-400"> Smart
                             HR</span>
                     </div>
                 </a>
@@ -34,18 +34,38 @@
                     color="primary" variant="solid" href="/register"><span>Get started <span
                             class="hidden lg:inline">today</span></span></a>
                 <div class="-mr-1 md:hidden">
-                    <div data-headlessui-state="">
+                    <div x-data="{isMobileNav: false}">
                         <button
+                            @click="isMobileNav = !isMobileNav"
                             class="relative z-10 flex h-8 w-8 items-center justify-center ui-not-focus-visible:outline-none"
                             aria-label="Toggle Navigation" type="button" aria-expanded="false" data-headlessui-state=""
-                            id="headlessui-popover-button-:R5v6fja:"><svg aria-hidden="true"
+                            id="headlessui-popover-button-:R5v6fja:">
+                            <svg aria-hidden="true"
                                 class="h-3.5 w-3.5 overflow-visible stroke-slate-700" fill="none" stroke-width="2"
                                 stroke-linecap="round">
-                                <path d="M0 1H14M0 7H14M0 13H14" class="origin-center transition"></path>
-                                <path d="M2 2L12 12M12 2L2 12" class="origin-center transition scale-90 opacity-0">
+                                <path d="M0 1H14M0 7H14M0 13H14" class="origin-center transition" :class="{'scale-90 opacity-0': isMobileNav}"></path>
+                                <path d="M2 2L12 12M12 2L2 12" class="origin-center transition" :class="{'scale-90 opacity-0': !isMobileNav}">
                                 </path>
                             </svg>
                         </button>
+                        <!--Mobile Menu Nav -->
+                        <div x-show="isMobileNav" x-transition class="fixed inset-0 bg-slate-300/50 duration-150 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in"
+                            id="headlessui-popover-backdrop-:R9v6fja:" aria-hidden="true" data-headlessui-state="open"
+                             style="">
+                        </div>
+                        <div x-show="isMobileNav" x-transition class="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-150 data-[leave]:duration-100 data-[enter]:ease-out data-[leave]:ease-in"
+                            id="headlessui-popover-panel-:Rdv6fja:" tabindex="-1" data-headlessui-state="open"
+                            data-open="" style="--button-width: 32px;"><a class="block w-full p-2"
+                                data-headlessui-state="open active" data-open="" data-active=""
+                                href="#features">Features</a><a class="block w-full p-2"
+                                data-headlessui-state="open active" data-open="" data-active=""
+                                href="#testimonials">Testimonials</a><a class="block w-full p-2"
+                                data-headlessui-state="open active" data-open="" data-active=""
+                                href="#pricing">Pricing</a>
+                            <hr class="m-2 border-slate-300/40"><a class="block w-full p-2"
+                                data-headlessui-state="open active" data-open="" data-active="" href="/login">Sign
+                                in</a>
+                        </div>
                     </div>
                     <div hidden=""
                         style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none">
