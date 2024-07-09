@@ -10,9 +10,7 @@
             src="{{ asset('images/backgrounds/background-features.5f7a9acs9.jpg') }}" style="color: transparent;">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
             <div class="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
-                <h2 class="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">Everything you
-                    need
-                    to run your books.</h2>
+                <h2 class="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">Transform Your HR Operations Today</h2>
                 <p class="mt-6 text-lg tracking-tight text-primary-100">Well everything you need if you aren’t that
                     picky
                     about minor details like tax compliance.</p>
@@ -24,66 +22,70 @@
                         <!-- Vertical Tabs -->
                         <div @click="currentTab=1"
                             class="group relative rounded-full px-4 py-1 lg:rounded-l-xl lg:rounded-r-none lg:p-6  lg:hover:bg-white/5"
-                            :class="{ 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
-                                    1 }">
+                            :class="{
+                                'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
+                                    1
+                            }">
                             <h3><button
                                     class="font-display text-lg ui-not-focus-visible:outline-none  text-primary-100  lg:text-white"
                                     :class="{ 'text-primary-600': currentTab === 1 }" id="headlessui-tabs-tab-:r7:"
                                     role="tab" type="button" tabindex="0" data-headlessui-state="selected"><span
-                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>Payroll</button>
+                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>Automated
+                                    Payroll</button>
                             </h3>
-                            <p class="mt-2 hidden text-sm lg:block text-white">Keep track of everyone's salaries and
-                                whether or not they've been paid. Direct deposit not supported.</p>
+                            <p class="mt-2 hidden text-sm lg:block text-white">Say goodbye to manual calculations.
+                                SmartHR ensures your payroll is accurate and timely.</p>
                         </div>
                         <div @click="currentTab=2"
                             class="group relative rounded-full px-4 py-1 lg:rounded-l-xl lg:rounded-r-none lg:p-6 lg:hover:bg-white/5"
-                            :class="{ 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
-                                    2 }">
+                            :class="{
+                                'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
+                                    2
+                            }">
                             <h3><button
                                     class="font-display text-lg ui-not-focus-visible:outline-none text-primary-100 lg:text-white"
                                     :class="{ 'text-primary-600': currentTab === 2 }" id="headlessui-tabs-tab-:r9:"
                                     role="tab" type="button" aria-selected="false" tabindex="-1"
                                     data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rh:"><span
-                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>Claim
-                                    expenses</button></h3>
-                            <p class="mt-2 hidden text-sm lg:block text-primary-100 group-hover:text-white">All of
-                                your
-                                receipts organized into one place, as long as you don't mind typing in the data by
-                                hand.
+                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>Employee
+                                    Self-Service</button></h3>
+                            <p class="mt-2 hidden text-sm lg:block text-primary-100 group-hover:text-white">
+                                Empower your
+                                team with a platform where they can manage their own profiles, request time off, and
+                                view payslips.
                             </p>
                         </div>
                         <div @click="currentTab=3"
                             class="group relative rounded-full px-4 py-1 lg:rounded-l-xl lg:rounded-r-none lg:p-6 lg:hover:bg-white/5"
-                            :class="{ 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
-                                    3 }">
+                            :class="{
+                                'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
+                                    3
+                            }">
                             <h3><button
                                     class="font-display text-lg ui-not-focus-visible:outline-none text-primary-100 lg:text-white"
                                     :class="{ 'text-primary-600': currentTab === 3 }" id="headlessui-tabs-tab-:rb:"
                                     role="tab" type="button" aria-selected="false" tabindex="-1"
                                     data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rj:"><span
-                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>VAT
-                                    handling</button></h3>
-                            <p class="mt-2 hidden text-sm lg:block text-primary-100 group-hover:text-white">We only
-                                sell
-                                our software to companies who don't deal with VAT at all, so technically we do all
-                                the
-                                VAT stuff they need.</p>
+                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>Time and Attendance Tracking</button></h3>
+                            <p class="mt-2 hidden text-sm lg:block text-primary-100 group-hover:text-white">
+                                Monitor employee attendance effortlessly with our intuitive tracking tools.
+                            </p>
                         </div>
                         <div @click="currentTab=4"
                             class="group relative rounded-full px-4 py-1 lg:rounded-l-xl lg:rounded-r-none lg:p-6 lg:hover:bg-white/5"
-                            :class="{ 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
-                                    4 }">
+                            :class="{
+                                'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10': currentTab ===
+                                    4
+                            }">
                             <h3><button
                                     class="font-display text-lg ui-not-focus-visible:outline-none text-primary-100 lg:text-white"
                                     :class="{ 'text-primary-600': currentTab === 4 }" id="headlessui-tabs-tab-:rd:"
                                     role="tab" type="button" aria-selected="false" tabindex="-1"
                                     data-headlessui-state="" aria-controls="headlessui-tabs-panel-:rl:"><span
-                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>Reporting</button>
+                                        class="absolute inset-0 rounded-full lg:rounded-l-xl lg:rounded-r-none"></span>Performance Management</button>
                             </h3>
-                            <p class="mt-2 hidden text-sm lg:block text-primary-100 group-hover:text-white">Easily
-                                export
-                                your data into an Excel spreadsheet where you can do whatever the hell you want with
-                                it.
+                            <p class="mt-2 hidden text-sm lg:block text-primary-100 group-hover:text-white">
+                                Keep track of employee performance and conduct reviews seamlessly.
                             </p>
                         </div>
                     </div>

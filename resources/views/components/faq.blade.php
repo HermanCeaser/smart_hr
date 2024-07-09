@@ -13,55 +13,63 @@
             <li>
                 <ul role="list" class="flex flex-col gap-y-8">
                     <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">Does TaxPal handle VAT?</h3>
-                        <p class="mt-4 text-sm text-slate-700">Well no, but if you move your company offshore you can
-                            probably ignore it.</p>
-                    </li>
-                    <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">Can I pay for my subscription via
-                            purchase order?</h3>
-                        <p class="mt-4 text-sm text-slate-700">Absolutely, we are happy to take your money in all forms.
+                        <h3 class="font-display text-lg leading-7 text-slate-900">What is SmartHR?</h3>
+                        <p class="mt-4 text-sm text-slate-700">
+                            SmartHR is a comprehensive HR management software designed to automate and streamline
+                            various HR processes, including payroll, attendance tracking, Leave management, performance
+                            management, and recruitment.
                         </p>
                     </li>
                     <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">How do I apply for a job at TaxPal?
+                        <h3 class="font-display text-lg leading-7 text-slate-900">How secure is SmartHR?</h3>
+                        <p class="mt-4 text-sm text-slate-700">We prioritize your data security. SmartHR uses advanced
+                            encryption methods and is compliant with industry standards and regulations to ensure your
+                            information is protected.
+                        </p>
+                    </li>
+                    <li>
+                        <h3 class="font-display text-lg leading-7 text-slate-900">Can SmartHR be customized to fit my
+                            business needs?
                         </h3>
-                        <p class="mt-4 text-sm text-slate-700">We only hire our customers, so subscribe for a minimum of
-                            6 months and then let’s talk.</p>
+                        <p class="mt-4 text-sm text-slate-700">Absolutely! SmartHR is highly scalable and can be
+                            customized to meet the specific needs of businesses of all sizes, from small startups to
+                            large enterprises.</p>
                     </li>
                 </ul>
             </li>
             <li>
                 <ul role="list" class="flex flex-col gap-y-8">
                     <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">What was that testimonial about tax
-                            fraud all about?</h3>
-                        <p class="mt-4 text-sm text-slate-700">TaxPal is just a software application, ultimately your
-                            books are your responsibility.</p>
+                        <h3 class="font-display text-lg leading-7 text-slate-900">Can employees use SmartHR to manage
+                            their own information?</h3>
+                        <p class="mt-4 text-sm text-slate-700">Yes, SmartHR includes an Employee Self-Service portal
+                            where employees can manage their profiles, request time off, view payslips, and more</p>
                     </li>
                     <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">TaxPal sounds horrible but why do I
-                            still feel compelled to purchase?</h3>
-                        <p class="mt-4 text-sm text-slate-700">This is the power of excellent visual design. You just
-                            can’t resist it, no matter how poorly it actually functions.</p>
+                        <h3 class="font-display text-lg leading-7 text-slate-900">How does SmartHR handle updates and
+                            new features?</h3>
+                        <p class="mt-4 text-sm text-slate-700">We regularly update SmartHR with new features and
+                            improvements based on user feedback and industry trends. Updates are automatically rolled
+                            out to ensure you always have the latest version.</p>
                     </li>
                     <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">I found other companies called TaxPal,
-                            are you sure you can use this name?</h3>
-                        <p class="mt-4 text-sm text-slate-700">Honestly not sure at all. We haven’t actually
-                            incorporated or anything, we just thought it sounded cool and made this website.</p>
+                        <h3 class="font-display text-lg leading-7 text-slate-900">What kind of support does SmartHR
+                            offer?</h3>
+                        <p class="mt-4 text-sm text-slate-700">We offer 24/7 customer support through various channels
+                            including email, live chat, and phone. Our dedicated support team is always ready to assist
+                            you.</p>
                     </li>
                 </ul>
             </li>
             <li>
                 <ul role="list" class="flex flex-col gap-y-8">
                     <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">How do you generate reports?</h3>
-                        <p class="mt-4 text-sm text-slate-700">You just tell us what data you need a report for, and we
-                            get our kids to create beautiful charts for you using only the finest crayons.</p>
+                        <h3 class="font-display text-lg leading-7 text-slate-900">Is there a free trial available?</h3>
+                        <p class="mt-4 text-sm text-slate-700">Yes, we offer a free trial so you can experience the full
+                            capabilities of SmartHR before making a commitment. Sign up today to get started.</p>
                     </li>
                     <li>
-                        <h3 class="font-display text-lg leading-7 text-slate-900">Can we expect more inventory features?
+                        <h3 class="font-display text-lg leading-7 text-slate-900">Can we expect more features?
                         </h3>
                         <p class="mt-4 text-sm text-slate-700">In life it’s really better to never expect anything at
                             all.</p>
