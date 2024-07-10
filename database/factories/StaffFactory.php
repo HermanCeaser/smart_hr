@@ -18,15 +18,15 @@ class StaffFactory extends Factory
     public function definition(): array
     {
         $gender = fake()->randomElement(['male', 'female']);
-        static $nextStaffNo = 1;
+        static $nextStaffNo = 2;
         return [
             'first_name' => fake()->firstName($gender),
             'last_name' => fake()->lastName($gender),
             'dob' => fake()->date(),
-            'date_of_joining' => now(),
+            'date_of_joining' => now()->subYear(1),
             'tenant_id' => random_int(1, 4),
             'gender' => $gender,
-            'employee_id' => 'EMP'.Carbon::now()->format('y'). '-' .sprintf('%04d', $nextStaffNo++),
+            'employee_id' => 'META'.Carbon::now()->subYear(2)->format('y'). 'EMP-' .sprintf('%04d', $nextStaffNo++),
             'department_id' => rand(1, 7),
             'designation_id' => rand(1, 7),
             'phone_number' => fake()->e164PhoneNumber(),

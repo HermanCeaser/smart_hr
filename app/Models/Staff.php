@@ -2,25 +2,31 @@
 
 namespace App\Models;
 
+use App\Enums\MaritalStatus;
+use App\Traits\HasTenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Staff extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTenant;
 
     protected $appends = ['full_name'];
     protected $guarded = [];
 
+    protected $casts = [
+        'marital_status' => MaritalStatus::class
+    ];
+
     public function department(): BelongsTo
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class, 'department_id');
     }
 
     public function designation(): BelongsTo
     {
-        return $this->belongsTo(Designation::class);
+        return $this->belongsTo(Designation::class, 'designation_id');
     }
 
     public function user()
@@ -38,5 +44,8 @@ class Staff extends Model
         return $this->first_name . ' ' . $this->last_name;
     }
 
-
+    public static function getForm(): array
+    {
+        return [];
+    }
 }

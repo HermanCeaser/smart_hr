@@ -2,9 +2,11 @@
 
 namespace App\Filament\Admin\Resources;
 
+use App\Enums\MaritalStatus;
 use App\Filament\Admin\Resources\StaffResource\Pages;
 use App\Filament\Admin\Resources\StaffResource\RelationManagers;
 use App\Models\Staff;
+use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -29,9 +31,86 @@ class StaffResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $tenant = Filament::getTenant();
+
         return $form
             ->schema([
-                //
+                Forms\Components\Grid::make()
+                    ->schema([
+                        Forms\Components\Section::make('Avatar')
+                            ->columnSpan(['md' => 6, 'lg' => 4])
+                            ->schema([
+                                Forms\Components\FileUpload::make('avatar')
+                                    ->label('')
+                                    ->helperText('Uploaded Image should be a jpeg,png,webp,svg and should be less than 5MB')
+                                    ->maxSize(1024 * 1024 * 5)
+                                    ->avatar()
+                                    ->columnSpanFull()
+                                    ->imageEditor(),
+                            ]),
+                        Forms\Components\Section::make('Employee details')
+                            ->collapsible()
+                            ->columns(2)
+                            ->columnSpan(['md' => 6, 'lg' => 8])
+                            ->schema([
+                                Forms\Components\TextInput::make('first_name')
+                                    ->label('First Name')
+                                    ->required(),
+                                Forms\Components\TextInput::make('last_name')
+                                    ->label('Last Name')
+                                    ->required(),
+                                Forms\Components\Select::make('gender')
+                                    ->native(false)
+                                    ->required()
+                                    ->options([
+                                        'male' => 'Male',
+                                        'female' => 'Female'
+                                    ]),
+                                Forms\Components\DatePicker::make('dob')
+                                    ->placeholder($tenant->display_format)
+                                    ->native(false)
+                                    ->label('Date of Birth')
+                                    ->displayFormat($tenant->date_format)
+                                    ->required(),
+                                Forms\Components\TextInput::make('email')
+                                    ->required()
+                                    ->email(),
+                                Forms\Components\TextInput::make('phone_number')
+                                    ->tel()
+                            ]),
+                        Forms\Components\Section::make('Other Information')
+                            ->collapsible()
+                            ->columnSpanFull()
+                            ->columns(3)
+                            ->schema([
+                                Forms\Components\Select::make('designation_id')
+                                    ->searchable()
+                                    ->required()
+                                    ->preload()
+                                    ->relationship(
+                                        name: 'designation',
+                                        titleAttribute: 'name',
+                                    ),
+                                Forms\Components\Select::make('department_id')
+                                    ->searchable()
+                                    ->required()
+                                    ->preload()
+                                    ->relationship(
+                                        name: 'department',
+                                        titleAttribute: 'name',
+                                    ),
+                                Forms\Components\Select::make('marital_status')
+                                    ->native(false)
+                                    ->enum(MaritalStatus::class)
+                                    ->options(MaritalStatus::class)
+                                    ->required()
+                            ])
+                    ])
+                    ->columns(12)
+                // ->columnSpanFull()
+
+
+
             ]);
     }
 
@@ -66,8 +145,8 @@ class StaffResource extends Resource
                     ->toggleable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
-                ->label('Joining date')
-                ->date()
+                    ->label('Joining date')
+                    ->date()
             ])
             ->filters([
                 //

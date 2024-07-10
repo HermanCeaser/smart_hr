@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('mobile_number')->nullable();
             $table->string('fax')->nullable();
             $table->string('website_url')->nullable();
+            $table->string('date_format')->default('d/m/Y');
+            $table->string('short_code');
             $table->timestamps();
         });
     }

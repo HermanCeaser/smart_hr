@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasTenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,11 +10,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Department extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTenant;
 
     public function staff(): HasMany
     {
-        return $this->hasMany(Staff::class);
+        return $this->hasMany(Staff::class, 'department_id');
     }
 
     public function tenant(): BelongsTo

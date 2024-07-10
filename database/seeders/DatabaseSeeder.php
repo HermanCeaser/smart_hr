@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
             TenantSeeder::class,
             DepartmentSeeder::class,
             DesignationSeeder::class,
+            RoleSeeder::class,
+            PermissionSeeder::class,
             StaffSeeder::class,
+
         ]);
     }
 }

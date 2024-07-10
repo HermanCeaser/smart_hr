@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -53,6 +54,17 @@ class Tenant extends Model
     }
 
 
+    protected function displayFormat(): Attribute
+    {
+        $mappings = [
+            'd' => 'dd',
+            'm' => 'mm',
+            'Y' => 'yyyy',
+            'y' => 'yy',
+        ];
 
-    
+        return Attribute::make(
+            get: fn (mixed $value, array $attributes)  => strtr($attributes['date_format'], $mappings),
+        )->shouldCache();
+    }
 }

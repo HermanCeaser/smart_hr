@@ -20,6 +20,7 @@ class ApplyTenantPermissions
             if ($tenant) {
                 if (!session('tenant_id')) {
                     session()->put('tenant_id', $tenant->id);
+                    session()->put('tenant_code', $tenant->short_code);
                 }
                 setPermissionsTeamId(session($tenant->id));
             }

@@ -13,10 +13,9 @@ class CreatePermission extends CreateRecord
 
     protected function handleRecordCreation(array $data): Model
     {
-        // dd($data);
+
         $data['guard_name'] = 'web';
 
-        // dd($data);
         $permission = static::getModel()::withoutEvents(fn() => static::getModel()::create($data));
 
         
