@@ -169,9 +169,16 @@ class StaffResource extends Resource
                     ->badge()
                     ->toggleable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('country.name')
+                    ->toggleable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Joining date')
                     ->date()
+            ])
+            ->groups([
+                'country.name',
+                'department.name'
             ])
             ->filters([
                 //
