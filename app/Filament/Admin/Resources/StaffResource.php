@@ -5,15 +5,19 @@ namespace App\Filament\Admin\Resources;
 use App\Enums\MaritalStatus;
 use App\Filament\Admin\Resources\StaffResource\Pages;
 use App\Filament\Admin\Resources\StaffResource\RelationManagers;
+use App\Models\Country;
 use App\Models\Staff;
+use App\Models\State;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Collection;
 
 class StaffResource extends Resource
 {
@@ -41,6 +45,7 @@ class StaffResource extends Resource
                             ->columnSpan(['md' => 6, 'lg' => 4])
                             ->schema([
                                 Forms\Components\FileUpload::make('avatar')
+                                    ->directory('avatars')
                                     ->label('')
                                     ->helperText('Uploaded Image should be a jpeg,png,webp,svg and should be less than 5MB')
                                     ->maxSize(1024 * 1024 * 5)
@@ -103,7 +108,27 @@ class StaffResource extends Resource
                                     ->native(false)
                                     ->enum(MaritalStatus::class)
                                     ->options(MaritalStatus::class)
-                                    ->required()
+                                    ->required(),
+                                Forms\Components\Fieldset::make('Location')
+                                    ->columnSpanFull()
+                                    ->schema([
+                                        Forms\Components\TextInput::make('local_address')
+                                            ->label('Address Line 1')
+                                            ->maxLength(255),
+                                            Forms\Components\TextInput::make('permanent_address')
+                                            ->label('Address Line 2')
+                                            ->maxLength(255),
+                                        Forms\Components\Select::make('country')
+                                            ->live()
+                                            ->searchable()
+                                            ->options(Country::all()->pluck('name', 'id')),
+                                        Forms\Components\Select::make('state')
+                                            ->searchable()
+                                            ->options(fn (Get $get): Collection => State::query()->where('country_id', $get('country'))->pluck('name', 'id')),
+                                        Forms\Components\TextInput::make('pincode')
+
+
+                                    ])
                             ])
                     ])
                     ->columns(12)
@@ -178,5 +203,10 @@ class StaffResource extends Resource
             'create' => Pages\CreateStaff::route('/create'),
             'edit' => Pages\EditStaff::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->latest('created_at');
     }
 }

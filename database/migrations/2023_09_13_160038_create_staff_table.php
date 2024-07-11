@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Country;
 use App\Models\Department;
 use App\Models\Designation;
+use App\Models\State;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -39,6 +41,8 @@ return new class extends Migration
             $table->timestamp('date_of_leaving')->nullable();
             $table->text('local_address')->nullable();
             $table->text('permanent_address')->nullable();
+            $table->foreignIdFor(Country::class)->nullable()->setNullOnDelete();
+            $table->foreignIdFor(State::class)->nullable()->setNullOnDelete();
             $table->text('note')->nullable();
             $table->string('bank_account_no')->nullable();
             $table->string('bank_name')->nullable();
